@@ -5,7 +5,7 @@ RULES_FILE=""
 
 RULES=$(cat ${RULES_FILE})
 
-laundary_data() {
+laundry_data() {
     for i in ""; do # how to get the list of files & subdirectories?
         if ???; then # check if $i is directory
             # $i is directory, recursively call function
@@ -22,5 +22,5 @@ laundary_data() {
     done
 }
 
-laundary_data ${DIR_NAME};
+laundry_data ${DIR_NAME};
 
