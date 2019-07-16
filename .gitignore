@@ -1,0 +1,5 @@
+*.output
+.vscode/
+html.lst
+rules.txt
+data/
