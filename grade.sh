@@ -4,7 +4,7 @@ rm -rf data-test
 cp -r data data-test
 echo 'Running replace.sh'
 timeout 1 bash ./replace.sh data-test rules.txt 1>stdout.output 2>stderr.output
-if diff -u -r data-ans data-test; then
+if diff -u -r data-test data-ans -x "*.bak"; then
     echo 'Passed'
 else
     echo 'Wrong'
