@@ -2,14 +2,26 @@
 
 rm -rf data-test
 cp -r data data-test
-echo 'Running replace.sh'
+if [ -t 1 ]; then
+    echo 'Running replace.sh'
+fi
 timeout 1 bash ./replace.sh data-test rules.txt 1>stdout.output 2>stderr.output
-if diff -u -r data-test data-ans -x "*.bak"; then
-    echo 'Passed'
+if diff -u -r data-test data-ans -x "*.bak" >diff.output; then
+    if [ -t 1 ]; then
+        echo 'Passed'
+    else
+        echo '{"grade":"100"}'
+    fi
 else
-    echo 'Wrong'
-    echo 'Program stdout:'
-    cat stdout.output
-    echo 'Program stderr:'
-    cat stderr.output
+    if [ -t 1 ]; then
+        echo 'Wrong'
+        echo 'Diff stdout:'
+        cat diff.output
+        echo 'Program stdout:'
+        cat stdout.output
+        echo 'Program stderr:'
+        cat stderr.output
+    else
+        echo '{"grade":"0"}'
+    fi
 fi
