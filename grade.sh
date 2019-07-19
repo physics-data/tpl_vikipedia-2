@@ -10,7 +10,7 @@ if diff -u -r data-test data-ans -x "*.bak" >diff.output; then
     if [ -t 1 ]; then
         echo 'Passed'
     else
-        echo '{"grade":"100"}'
+        echo '{"grade":100}'
     fi
 else
     if [ -t 1 ]; then
@@ -22,6 +22,6 @@ else
         echo 'Program stderr:'
         cat stderr.output
     else
-        echo '{"grade":"0"}'
+        echo '{"grade":0}'
     fi
 fi
