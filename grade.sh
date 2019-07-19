@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Homebrew GNU sed/find
+export PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
 rm -rf data-test
 cp -r data data-test
 if [ -t 1 ]; then
